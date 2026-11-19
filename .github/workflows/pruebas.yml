@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - name: Descargar el código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Instalar Flutter 3.44.0 (la misma versión que en la PC)
         uses: subosito/flutter-action@v2
@@ -76,7 +76,7 @@ jobs:
 
       - name: Guardar reportes (JSON, salida, resumen y cobertura)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: reportes-pruebas-${{ github.run_number }}
           path: |

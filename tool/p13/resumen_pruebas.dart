@@ -32,7 +32,13 @@ void main(List<String> args) {
         final resultado = e['skipped'] == true ? 'skipped' : e['result'] as String;
         resultados[e['testID'] as int] = (resultado: resultado, fin: e['time'] as int, oculta: e['hidden'] == true);
       case 'error':
-        errores.putIfAbsent(e['testID'] as int, () => []).add('${e['error']}'.split('\n').first);
+        errores.putIfAbsent(e['testID'] as int, () => []).add('${e['error']}');
+      // En las pruebas de widgets la causa sale como texto impreso ("The following
+      // TestFailure was thrown…") y el error es solo "Test failed. See exception logs above."
+      case 'print':
+        final m = '${e['message']}';
+        final causa = RegExp(r'^(No apareció.*|Expected:.*)$', multiLine: true).firstMatch(m);
+        if (causa != null) errores.putIfAbsent(e['testID'] as int, () => []).insert(0, causa[0]!);
       case 'done':
         tiempoTotal = e['time'] as int;
     }
@@ -94,6 +100,15 @@ void main(List<String> args) {
     md.writeln('| `$k` | ${f[0]} | ${f[1]} | ${f[2]} | ${(f[3] / 1000).toStringAsFixed(1)} s |');
   }
 
+  // Mensaje útil de una falla: el primer error que no sea el genérico "Test failed…",
+  // con sus primeras líneas (Expected / Actual / Which).
+  String detalle(int id) {
+    final lista = errores[id] ?? const [];
+    final e = lista.firstWhere((x) => !x.startsWith('Test failed'), orElse: () => lista.isEmpty ? '(sin detalle)' : lista.first);
+    final lineas = e.split('\n').map((l) => l.trim()).where((l) => l.isNotEmpty).take(3).join(' | ');
+    return lineas.length > 300 ? '${lineas.substring(0, 300)}…' : lineas;
+  }
+
   final conFalla = visibles.where((r) => r.value.resultado != 'success' && r.value.resultado != 'skipped');
   if (conFalla.isNotEmpty) {
     md
@@ -101,7 +116,7 @@ void main(List<String> args) {
       ..writeln('### Pruebas fallidas')
       ..writeln();
     for (final r in conFalla) {
-      md.writeln('- **${pruebas[r.key]!.nombre}**: ${(errores[r.key] ?? ['(sin detalle)']).first}');
+      md.writeln('- **${pruebas[r.key]!.nombre}**: ${detalle(r.key)}');
     }
   }
 
@@ -109,5 +124,19 @@ void main(List<String> args) {
     File(args[1]).writeAsStringSync(md.toString());
   } else {
     stdout.write(md);
+  }
+
+  // En GitHub Actions, además, anotaciones: aparecen en la página pública de la corrida
+  // (el resumen y los logs solo se ven con sesión iniciada).
+  if (Platform.environment['GITHUB_ACTIONS'] == 'true') {
+    String limpio(String s) => s.replaceAll('%', '%25').replaceAll('\r', '').replaceAll('\n', ' ');
+    stdout.writeln('::notice title=Pruebas: ${visibles.length} ejecutadas::'
+        '$aprobadas aprobadas, $fallidas fallidas, $omitidas omitidas en ${(tiempoTotal / 1000).toStringAsFixed(1)} s');
+    for (final r in conFalla) {
+      final p = pruebas[r.key]!;
+      final archivo = 'test/${suites[p.suite]!.split('/test/').last}';
+      stdout.writeln('::error file=$archivo,title=${limpio(p.nombre).replaceAll(',', ';').replaceAll('::', ':')}::'
+          '${limpio(detalle(r.key))}');
+    }
   }
 }

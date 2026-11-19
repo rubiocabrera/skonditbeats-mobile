@@ -18,6 +18,13 @@ concurrency:
 permissions:
   contents: read
 
+# Sin "shell: bash" explícito, GitHub corre cada paso con "bash -e {0}" SIN pipefail:
+# en "flutter test | tee" el paso tomaba el código de salida de tee (0) y quedaba en
+# verde aunque fallaran pruebas (corrida 1, commit 78cc869). Con esto, bash -eo pipefail.
+defaults:
+  run:
+    shell: bash
+
 jobs:
   pruebas:
     name: Análisis y pruebas (Flutter)
@@ -50,6 +57,7 @@ jobs:
       - name: Pruebas (unitarias, integración y persistencia)
         id: pruebas
         run: |
+          set -o pipefail
           inicio=$(date +%s)
           flutter test --coverage \
             --reporter expanded \

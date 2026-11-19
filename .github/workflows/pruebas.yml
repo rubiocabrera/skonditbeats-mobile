@@ -76,7 +76,7 @@ jobs:
 
       - name: Guardar reportes (JSON, salida, resumen y cobertura)
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: reportes-pruebas-${{ github.run_number }}
           path: |

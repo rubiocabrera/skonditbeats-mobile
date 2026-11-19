@@ -54,8 +54,9 @@ Estado con **Riverpod**, rutas con **go_router**, HTTP con **dio**.
    flutter devices   # copia el id de tu celular
    flutter run -d <id-del-celular> --dart-define=API_URL=http://127.0.0.1:3000/api
    ```
-   Sin el `--dart-define` la app busca `10.0.2.2`, que solo existe en el emulador,
-   y el login falla con "El servidor tardó demasiado".
+   Sin el `--dart-define` la app usa la API de producción
+   (`https://skonditbeats-backend.vercel.app/api`). Para instalar la app sin la PC:
+   `flutter build apk --release` (o `build_apk.bat`).
 
 ## Probar la biometría en el emulador
 1. En el emulador: Settings → Security → Screen lock → PIN.

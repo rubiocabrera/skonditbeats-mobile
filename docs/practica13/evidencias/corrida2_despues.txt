@@ -1,0 +1,65 @@
+00:00 +0: loading D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart
+00:00 +0: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Correo entrada válida → sin error (también con espacios alrededor)
+00:00 +1: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Correo entrada vacía o nula → "El correo es obligatorio"
+00:00 +2: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Correo formatos inválidos → "Ingresa un correo válido"
+00:00 +3: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Contraseña (misma política que el backend) entrada válida → sin error
+00:00 +4: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Contraseña (misma política que el backend) vacía o nula → obligatoria
+00:00 +5: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Contraseña (misma política que el backend) límite de longitud: 9 caracteres no, 10 sí
+00:00 +6: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Contraseña (misma política que el backend) resultado esperado: dice exactamente la primera regla que falta
+00:00 +7: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP edad: valores en rango y en los límites
+00:00 +8: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP edad: fuera de rango
+00:00 +9: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP edad: vacía, nula, con decimales o texto → se pide de nuevo
+00:00 +10: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP teléfono: opcional, pero si se escribe debe tener 10 a 13 dígitos
+00:00 +11: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP nombre: mínimo 2 letras sin contar espacios
+00:00 +12: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Edad, teléfono, nombre y código OTP OTP: exactamente 6 dígitos
+00:00 +13: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Datos que se envían al registrarse normaliza correo y nombre y omite los opcionales vacíos
+00:00 +14: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut01_registro_login_test.dart: AUT-01 · Datos que se envían al registrarse incluye usuario y teléfono cuando sí se capturan
+00:00 +15: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Número de tarjeta (Luhn) entrada válida: tarjetas de prueba Visa y Mastercard, con o sin espacios
+00:00 +16: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Número de tarjeta (Luhn) vacía o nula → pide los 16 dígitos
+00:00 +17: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Número de tarjeta (Luhn) longitud fuera de rango (15 y 17 dígitos)
+00:00 +18: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Número de tarjeta (Luhn) 16 dígitos con un error de captura → "no válido"
+00:00 +19: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Número de tarjeta (Luhn) DEF-07 · manejo de excepciones: luhn() con letras responde false, no lanza
+00:00 +20: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Vencimiento MM/AA entrada válida: el mes actual todavía es vigente
+00:00 +21: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Vencimiento MM/AA vacía, nula o con otro formato
+00:00 +22: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Vencimiento MM/AA mes fuera de rango (00 y 13)
+00:00 +23: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Vencimiento MM/AA tarjeta vencida (el mes anterior)
+00:00 +24: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · Vencimiento MM/AA DEF-06 · a más de 20 años es un error de captura
+00:00 +25: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · CVV, titular y formato del campo CVV de 3 o 4 dígitos
+00:00 +26: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · CVV, titular y formato del campo titular: mínimo 4 caracteres
+00:00 +27: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut02_pago_tarjeta_test.dart: AUT-02 · CVV, titular y formato del campo el formateador agrupa de 4 en 4 y corta en 16 dígitos
+00:00 +28: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Precios (formatMoney) resultado esperado con separador de miles y redondeo
+00:00 +29: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Precios (formatMoney) fuera de rango: montos negativos (reembolsos/descuentos)
+00:00 +30: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Precios (formatMoney) manejo de excepciones: un valor no finito no tumba la pantalla
+00:00 +31: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Números que manda la API (parseNum) número o texto válido
+00:00 +32: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Números que manda la API (parseNum) nulo, vacío o basura → 0
+00:00 +33: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Números que manda la API (parseNum) texto "NaN" o "Infinity" → 0 (no es un precio)
+00:00 +34: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Artículo del carrito (lo que se guarda en SQLite) un beat ida y vuelta por toMap/fromMap queda igual
+00:00 +35: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Artículo del carrito (lo que se guarda en SQLite) un paquete vacío se guarda sin ids fantasma
+00:00 +36: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Mensajes de error de la API (ApiException.fromDio) usa el mensaje de la API cuando lo trae
+00:00 +37: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Mensajes de error de la API (ApiException.fromDio) no muestra el inglés de Fastify (Práctica 11, DEF-01)
+00:00 +38: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Mensajes de error de la API (ApiException.fromDio) código HTTP → mensaje para el usuario
+00:00 +39: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Regreso del inicio de sesión con Google entrada válida → pide el OTP del correo
+00:00 +40: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut03_logica_negocio_test.dart: AUT-03 · Regreso del inicio de sesión con Google manejo de excepciones: error, correo vacío u otro esquema → ApiException
+00:00 +41: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04a · login de admin: envía JSON normalizado y recibe token + usuario (200)
+00:00 +42: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04b · login de cliente: la API pide 2FA y la app pasa al OTP
+00:00 +43: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04c · verificar OTP → sesión del cliente
+00:00 +44: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04d · contraseña incorrecta: 401 con el mensaje de la API y sin reintentos
+00:00 +45: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04e · registro con correo repetido: 409 y mensaje claro
+00:00 +46: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04f · registro correcto: 201 con token y el usuario creado
+00:00 +47: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04g · respuesta 200 incompleta (sin token): error controlado, no TypeError
+00:00 +48: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04h · respuesta 200 que no es JSON (página HTML): error controlado
+00:01 +49: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut04_auth_api_integracion_test.dart: AUT-04i · 503 en el login (POST sin Idempotency-Key): no se repite a ciegas
+00:01 +50: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:01 +51: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +52: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +53: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +54: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +55: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +56: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +57: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:02 +58: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05a · servidor apagado → aviso de que no hay conexión y el botón se reactiva
+00:03 +59: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05b · servidor que no contesta → aviso de tiempo agotado
+00:04 +60: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05c · credenciales incorrectas → se muestra el mensaje que manda la API
+00:04 +61: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05d · respuesta 200 dañada → mensaje de error, no se queda en silencio
+00:04 +62: D:/Flutter/skondit_beats_mobile/test/automatizacion/aut05_login_pantalla_red_test.dart: AUT-05e · formulario vacío → la app no llama al servidor
+00:05 +63: All tests passed!

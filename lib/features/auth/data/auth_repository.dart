@@ -95,23 +95,25 @@ class AuthRepository {
     });
 
     if (data['requires2fa'] == true) {
+      final email = data['email'];
+      if (email is! String || email.isEmpty) throw ApiException(respuestaInvalida);
       return LoginNeedsOtp(
-        email: data['email'] as String,
+        email: email,
         message: (data['message'] as String?) ?? 'Código enviado a tu correo',
         otpDev: data['otpDev'] as String?,
       );
     }
-    return LoginSuccess(data['token'] as String, User.fromJson(data['user']));
+    return _sesion(data);
   }
 
   Future<LoginSuccess> verifyOtp(String email, String code) async {
     final data = await _post('/auth/verify-otp', {'email': email, 'code': code});
-    return LoginSuccess(data['token'] as String, User.fromJson(data['user']));
+    return _sesion(data);
   }
 
   Future<LoginSuccess> register(RegisterData body) async {
     final data = await _post('/auth/register', body.toJson());
-    return LoginSuccess(data['token'] as String, User.fromJson(data['user']));
+    return _sesion(data);
   }
 
   /// Inicio de sesión con Google en el navegador del sistema. La API hace el OAuth
@@ -136,6 +138,23 @@ class AuthRepository {
     try {
       await _dio.post('/auth/logout', data: {});
     } catch (_) {}
+  }
+
+  /// Mensaje cuando la API contesta 200 pero sin lo que la app necesita.
+  static const respuestaInvalida = 'La respuesta del servidor no es válida. Intenta de nuevo.';
+
+  /// Convierte {token, user} en una sesión. Antes se hacía `data['token'] as String`
+  /// y una respuesta incompleta (proxy, caché, versión vieja de la API) lanzaba un
+  /// TypeError que la pantalla no atrapaba: el botón volvía a la normalidad sin
+  /// ningún mensaje (Prácticas 13 y 14, AUT-04g / AUT-05d).
+  static LoginSuccess _sesion(Map<String, dynamic> data) {
+    final token = data['token'];
+    final user = data['user'];
+    if (token is! String || token.isEmpty || user is! Map<String, dynamic> ||
+        user['id'] is! String || user['email'] is! String) {
+      throw ApiException(respuestaInvalida);
+    }
+    return LoginSuccess(token, User.fromJson(user));
   }
 
   Future<Map<String, dynamic>> _post(String path, Map<String, dynamic> body) async {

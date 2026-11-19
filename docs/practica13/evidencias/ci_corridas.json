@@ -533,5 +533,201 @@
         "mensaje": "192 aprobadas, 0 fallidas, 0 omitidas en 24.4 s"
       }
     ]
+  },
+  {
+    "numero": 6,
+    "id": 44437052604,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44437052604",
+    "commit": "a1d4b4f",
+    "mensaje": "docs: informe, evidencias y datos del CI (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "success",
+    "inicio": "2026-11-19T01:27:37Z",
+    "duracion_job_s": 95,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 2
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 23
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 8
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 16
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "success",
+        "segundos": 38
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "notice",
+        "titulo": "Pruebas: 192 ejecutadas",
+        "mensaje": "192 aprobadas, 0 fallidas, 0 omitidas en 33.2 s"
+      }
+    ]
+  },
+  {
+    "numero": 7,
+    "id": 44439740717,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44439740717",
+    "commit": "f359c10",
+    "mensaje": "chore: la app usa por defecto la API de produccion (Vercel)",
+    "evento": "push",
+    "resultado": "success",
+    "inicio": "2026-11-19T01:49:09Z",
+    "duracion_job_s": 78,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 24
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 4
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 13
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "success",
+        "segundos": 30
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "notice",
+        "titulo": "Pruebas: 192 ejecutadas",
+        "mensaje": "192 aprobadas, 0 fallidas, 0 omitidas en 27.0 s"
+      }
+    ]
   }
 ]

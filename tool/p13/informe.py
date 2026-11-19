@@ -183,12 +183,14 @@ par('`.github/workflows/pruebas.yml` se dispara con `push`, `pull_request` y a m
 
 h2('Fase 5 · Resultados')
 c1, c2, c3, c4, c5 = (CI[i] for i in range(1, 6))
+CORRIDAS = [CI[k] for k in sorted(CI)]
+ULTIMA = CORRIDAS[-1]
 tabla(['Ejecución', 'Commit', 'Resultado', 'Pruebas', 'Tiempo'], [
     ['Local, antes de corregir', '—', 'Falla', f'{int(ANTES_RES[0]) + int(ANTES_RES[1])} nuevas: {ANTES_RES[0]} ✓, {ANTES_RES[1]} ✗',
      '51 s'],
     *[[f'CI corrida #{c["numero"]}', f'`{c["commit"]}`', RES_CI[c['resultado']],
        {1: '187 ✓, 5 ✗ (no detectadas)', 2: '187 ✓, 5 ✗', 3: '187 ✓, 5 ✗'}.get(c['numero'], f'{N_TOTAL} ✓, 0 ✗'),
-       f'{c["duracion_job_s"]} s (pruebas {paso(c["numero"], "Pruebas")["segundos"]} s)'] for c in (c1, c2, c3, c4, c5)],
+       f'{c["duracion_job_s"]} s (pruebas {paso(c["numero"], "Pruebas")["segundos"]} s)'] for c in CORRIDAS],
     ['Local, final', '`22d023c`', 'Éxito', f'{N_OK} ✓, {N_TOTAL - N_OK} ✗', f'{FINAL_MS / 1000:.1f} s'],
 ], [1.6, 0.8, 0.8, 2.0, 1.3], tam=8.5)
 par(f'Total final: **{N_TOTAL} pruebas ejecutadas, {N_OK} aprobadas, {N_TOTAL - N_OK} fallidas**, '
@@ -202,9 +204,11 @@ par('**Errores encontrados y cambios.** Las pruebas encontraron cuatro defectos 
     'no atrapaba. En el CI se encontró un quinto defecto, más peligroso: la **corrida 1 salió en verde con 5 pruebas fallando**, '
     'porque `flutter test | tee` tomaba el código de salida de `tee`. Se corrigió con `bash -eo pipefail` (corrida 2, roja '
     'como debía). Luego se agregaron anotaciones públicas (corrida 3) y se subieron las correcciones de la app (corrida 4, verde). '
-    'El último push (corrida 5) actualizó `upload-artifact` a Node 24 y comprobó que el flujo vuelve a correr solo y sin avisos.')
+    'La corrida 5 actualizó `upload-artifact` a Node 24 y comprobó que el flujo vuelve a correr solo y sin avisos. Las corridas '
+    f'6 y 7 son pushes posteriores (el informe y un cambio real de la app: la URL de la API de producción) y el CI los validó '
+    f'solo, en verde; en total, {len(CORRIDAS)} ejecuciones automáticas.')
 
-h2('Fase 6 · Conclusión técnica')
+h2('Fase 6 · Conclusión técnica (resumen; ver sección 6)')
 par('La automatización convierte cada defecto corregido en una regla que el repositorio vuelve a comprobar sola. DEF-06 y '
     'DEF-07 de la Práctica 11, o el `TypeError` del login de esta práctica, ya no dependen de que alguien se acuerde de probarlos '
     f'a mano: si un cambio futuro los reintroduce, alguna de las {N_TOTAL} pruebas falla y GitHub marca el commit en rojo antes '
@@ -316,11 +320,11 @@ h1('5. Evidencia de la ejecución automática')
 par(f'Repositorio público: `{REPO}` → pestaña Actions. Cada corrida se disparó sola con `git push`.')
 tabla(['#', 'Commit', 'Cambio', 'Resultado', 'Anotación de totales'], [
     [str(c['numero']), f'`{c["commit"]}`', c['mensaje'].split(' (Practicas')[0], RES_CI[c['resultado']], notice(c['numero'])]
-    for c in (c1, c2, c3, c4, c5)
+    for c in CORRIDAS
 ], [0.3, 0.75, 2.6, 0.7, 2.15], tam=8)
-imagen(CAP / '01_lista_corridas.png', ancho_max=6.4, pie='Figura 1. Las cinco corridas del flujo "Pruebas automatizadas", todas disparadas por push.')
+imagen(CAP / '01_lista_corridas.png', ancho_max=6.4, pie=f'Figura 1. Las {len(CORRIDAS)} corridas del flujo "Pruebas automatizadas", todas disparadas por push.')
 imagen(recorte('02_corrida1_verde_falso', 1290), ancho_max=5.2, pie='Figura 2. Corrida #1: verde con 5 pruebas fallando (ERR-04).')
-imagen(recorte('04_corrida3_rojo_anotaciones'), ancho_max=6.2, alto_max=8.0,
+imagen(recorte('04_corrida3_rojo_anotaciones', 2030), ancho_max=6.2, alto_max=8.0,
        pie='Figura 3. Corrida #3: el CI detecta las 5 pruebas fallidas y muestra la causa de cada una.')
 imagen(recorte('05_corrida4_verde', 1150), ancho_max=5.2, pie='Figura 4. Corrida #4: con las correcciones de la app, todo en verde.')
 imagen(recorte('06_corrida5_verde', 1150), ancho_max=5.2, pie='Figura 5. Corrida #5 (nuevo push): el flujo se ejecuta otra vez, en verde y sin avisos.')
@@ -332,7 +336,33 @@ tabla(['Paso', 'Resultado', 'Segundos'], [
 salto()
 
 # ═════════════════════════════════════════════════════════════════════════════
-h1('6. Entregables')
+h1('6. Conclusiones')
+par('**1. La automatización convierte cada defecto corregido en una regla permanente.** Los defectos DEF-06 y DEF-07 de la '
+    'Práctica 11 y los defectos de la app encontrados en esta práctica (ERR-01 a ERR-03) quedaron cubiertos por pruebas. Si un '
+    f'cambio futuro los reintroduce, alguna de las {N_TOTAL} pruebas falla y GitHub marca el commit en rojo antes de que el '
+    'cambio llegue al teléfono. Ya no depende de que alguien se acuerde de probarlo a mano.')
+par('**2. Se demostró con un caso real después de terminar la práctica.** La corrida 7 corresponde a una modificación '
+    'posterior de la app (cambiar la API por omisión a la de producción). El flujo se ejecutó solo con el push y confirmó, en '
+    f'{paso(ULTIMA["numero"], "Pruebas")["segundos"]} s, que las {N_TOTAL} pruebas siguen pasando: análisis estático, '
+    'validaciones, pagos, comunicación con la API, pantalla de login y SQLite. Esa es la idea central de la práctica: '
+    'conservar la calidad cuando la aplicación cambia.')
+par('**3. Un CI en verde no vale nada si no se comprueba que sabe ponerse en rojo.** La primera corrida pasó con 5 pruebas '
+    'fallando porque `flutter test | tee` ocultaba el código de salida. Si no se hubiera forzado a propósito la secuencia '
+    'rojo → verde (commit con fallas, luego commit con la corrección), el pipeline habría dado una falsa sensación de '
+    'seguridad. La lección: el pipeline también se prueba.')
+par('**4. El entorno fijo elimina el "en mi PC sí funciona".** El CI siempre usa Flutter 3.44.0 en Ubuntu, sin datos ni '
+    'configuración de la PC, y guarda el reporte y la cobertura de cada commit. Así el resultado se puede repetir y '
+    'consultar después.')
+par('**5. Pruebas rápidas y deterministas, condición para que se usen.** Las pruebas de integración hablan con un servidor '
+    'HTTP real en 127.0.0.1 y las de persistencia con SQLite real, sin depender de internet ni de la base de producción. '
+    f'Por eso la suite completa tarda unos {FINAL_MS / 1000:.0f} s y da el mismo resultado en cualquier red; si fueran '
+    'lentas o inestables, la tentación sería desactivarlas.')
+par('**Recomendaciones.** Proteger la rama `master` para exigir el CI en verde antes de fusionar un pull request; '
+    'agregar una prueba de extremo a extremo en un emulador (integration_test) para el flujo de compra completo; y '
+    'publicar la cobertura como artefacto comparable entre commits para que no baje con el tiempo.')
+salto()
+
+h1('7. Entregables')
 tabla(['#', 'Entregable', 'Dónde'], [
     ['1', 'Repositorio actualizado', f'`{REPO}` (rama `master`)'],
     ['2', 'Código de al menos 5 pruebas unitarias', f'`test/automatizacion/aut01…aut03_*_test.dart` ({sum(AUT[k][0] for k in ("AUT-01", "AUT-02", "AUT-03"))} casos)'],
@@ -340,7 +370,7 @@ tabla(['#', 'Entregable', 'Dónde'], [
     ['4', 'Archivo de configuración del pipeline', '`.github/workflows/pruebas.yml` (Anexo A)'],
     ['5', 'Evidencia de ejecución exitosa', 'Sección 5, corridas #4 y #5; artefacto `reportes-pruebas-N` en cada corrida'],
     ['6', 'Matriz de validación completada', 'Sección 2 (AUT-01 … AUT-08)'],
-    ['7', 'Reporte técnico (1–2 cuartillas)', 'Sección 1'],
+    ['7', 'Reporte técnico (1–2 cuartillas) y conclusiones', 'Sección 1 (reporte) y sección 6 (conclusiones)'],
 ], [0.3, 2.4, 3.8], tam=9)
 
 h1('Anexo A · Pipeline (.github/workflows/pruebas.yml)')

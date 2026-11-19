@@ -15,7 +15,7 @@ REPO = 'https://github.com/rubiocabrera/skonditbeats-mobile'
 CORRIDAS = {c['numero']: c for c in json.loads((RAIZ / 'docs/practica13/evidencias/ci_corridas.json').read_text(encoding='utf-8'))}
 
 PAGINAS = [
-    ('01_lista_corridas', f'{REPO}/actions', 1100),
+    ('01_lista_corridas', f'{REPO}/actions', 1350),
     ('02_corrida1_verde_falso', CORRIDAS[1]['url'], 1000),
     ('03_corrida2_rojo', CORRIDAS[2]['url'], 1000),
     ('04_corrida3_rojo_anotaciones', CORRIDAS[3]['url'], 1500),

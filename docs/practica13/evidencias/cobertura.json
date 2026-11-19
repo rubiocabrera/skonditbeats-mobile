@@ -1,0 +1,46 @@
+{
+ "lib/core/utils/validators.dart": [
+  56,
+  57
+ ],
+ "lib/core/utils/money.dart": [
+  12,
+  12
+ ],
+ "lib/core/utils/card_formatters.dart": [
+  21,
+  21
+ ],
+ "lib/features/auth/data/auth_repository.dart": [
+  50,
+  58
+ ],
+ "lib/features/auth/presentation/screens/login_screen.dart": [
+  48,
+  65
+ ],
+ "lib/core/network/api_client.dart": [
+  77,
+  104
+ ],
+ "lib/features/cart/data/cart_dao.dart": [
+  14,
+  14
+ ],
+ "lib/features/cart/domain/cart_item.dart": [
+  36,
+  36
+ ],
+ "lib/core/database/app_database.dart": [
+  23,
+  24
+ ],
+ "lib/features/activity/data/acceso_dao.dart": [
+  9,
+  10
+ ],
+ "TOTAL": [
+  735,
+  4086
+ ]
+}

@@ -1,0 +1,537 @@
+[
+  {
+    "numero": 1,
+    "id": 44434934969,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44434934969",
+    "commit": "78cc869",
+    "mensaje": "test: suite AUT-01..06 y flujo de CI en GitHub Actions (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "success",
+    "inicio": "2026-11-19T01:11:06Z",
+    "duracion_job_s": 106,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 26
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 3
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 11
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 11
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "success",
+        "segundos": 37
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 12
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "warning",
+        "titulo": "",
+        "mensaje": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      }
+    ]
+  },
+  {
+    "numero": 2,
+    "id": 44435269790,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44435269790",
+    "commit": "404be08",
+    "mensaje": "ci: el paso de pruebas no detectaba fallas por tee sin pipefail (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "failure",
+    "inicio": "2026-11-19T01:13:41Z",
+    "duracion_job_s": 99,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 23
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 4
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 16
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "failure",
+        "segundos": 46
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "warning",
+        "titulo": "",
+        "mensaje": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "",
+        "mensaje": "Process completed with exit code 1."
+      }
+    ]
+  },
+  {
+    "numero": 3,
+    "id": 44435623245,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44435623245",
+    "commit": "793aa8c",
+    "mensaje": "ci: anotaciones publicas por prueba fallida y acciones en Node 24 (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "failure",
+    "inicio": "2026-11-19T01:16:20Z",
+    "duracion_job_s": 86,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 19
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 4
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 2
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 14
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "failure",
+        "segundos": 42
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "warning",
+        "titulo": "",
+        "mensaje": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "AUT-05d · respuesta 200 dañada → mensaje de error; no se queda en silencio",
+        "mensaje": "No apareció el mensaje \"RegExp: pattern=respuesta.*no es válida flags=i\" en pantalla. Había: null |"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "AUT-03 · Números que manda la API (parseNum) texto \"NaN\" o \"Infinity\" → 0 (no es un precio)",
+        "mensaje": "Expected: <0> | Actual: <NaN>"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "AUT-03 · Precios (formatMoney) manejo de excepciones: un valor no finito no tumba la pantalla",
+        "mensaje": "Expected: return normally | Actual: <Closure: () => String> | Which: threw UnsupportedError:<Unsupported operation: Infinity or NaN toInt>"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "AUT-03 · Precios (formatMoney) fuera de rango: montos negativos (reembolsos/descuentos)",
+        "mensaje": "Expected: '-$500 MXN' | Actual: '$-,500 MXN' | Which: is different."
+      },
+      {
+        "nivel": "failure",
+        "titulo": "AUT-04g · respuesta 200 incompleta (sin token): error controlado; no TypeError",
+        "mensaje": "Expected: throws <Instance of 'ApiException'> | Actual: <Instance of 'Future<LoginResult>'> | Which: threw _TypeError:<type 'Null' is not a subtype of type 'String' in type cast>"
+      },
+      {
+        "nivel": "notice",
+        "titulo": "Pruebas: 192 ejecutadas",
+        "mensaje": "187 aprobadas, 5 fallidas, 0 omitidas en 38.6 s"
+      },
+      {
+        "nivel": "failure",
+        "titulo": "",
+        "mensaje": "Process completed with exit code 1."
+      }
+    ]
+  },
+  {
+    "numero": 4,
+    "id": 44435888549,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44435888549",
+    "commit": "12586eb",
+    "mensaje": "fix: precios negativos/NaN y respuesta de login incompleta (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "success",
+    "inicio": "2026-11-19T01:18:24Z",
+    "duracion_job_s": 82,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 19
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 8
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 14
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "success",
+        "segundos": 34
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "warning",
+        "titulo": "",
+        "mensaje": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      },
+      {
+        "nivel": "notice",
+        "titulo": "Pruebas: 192 ejecutadas",
+        "mensaje": "192 aprobadas, 0 fallidas, 0 omitidas en 30.0 s"
+      }
+    ]
+  },
+  {
+    "numero": 5,
+    "id": 44436130966,
+    "url": "https://github.com/rubiocabrera/skonditbeats-mobile/actions/runs/44436130966",
+    "commit": "22d023c",
+    "mensaje": "ci: upload-artifact v6 (Node 24), sin avisos de Node.js 20 (Practicas 13 y 14)",
+    "evento": "push",
+    "resultado": "success",
+    "inicio": "2026-11-19T01:20:20Z",
+    "duracion_job_s": 72,
+    "pasos": [
+      {
+        "n": 1,
+        "nombre": "Set up job",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 2,
+        "nombre": "Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 3,
+        "nombre": "Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 21
+      },
+      {
+        "n": 4,
+        "nombre": "SQLite nativo para las pruebas de persistencia (sqflite_common_ffi)",
+        "resultado": "success",
+        "segundos": 4
+      },
+      {
+        "n": 5,
+        "nombre": "Versiones",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 6,
+        "nombre": "Dependencias",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 7,
+        "nombre": "Análisis estático (flutter analyze)",
+        "resultado": "success",
+        "segundos": 12
+      },
+      {
+        "n": 8,
+        "nombre": "Pruebas (unitarias, integración y persistencia)",
+        "resultado": "success",
+        "segundos": 28
+      },
+      {
+        "n": 9,
+        "nombre": "Resumen en la página de la corrida",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 10,
+        "nombre": "Guardar reportes (JSON, salida, resumen y cobertura)",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 19,
+        "nombre": "Post Instalar Flutter 3.44.0 (la misma versión que en la PC)",
+        "resultado": "success",
+        "segundos": 0
+      },
+      {
+        "n": 20,
+        "nombre": "Post Descargar el código",
+        "resultado": "success",
+        "segundos": 1
+      },
+      {
+        "n": 21,
+        "nombre": "Complete job",
+        "resultado": "success",
+        "segundos": 0
+      }
+    ],
+    "anotaciones": [
+      {
+        "nivel": "notice",
+        "titulo": "Pruebas: 192 ejecutadas",
+        "mensaje": "192 aprobadas, 0 fallidas, 0 omitidas en 24.4 s"
+      }
+    ]
+  }
+]
